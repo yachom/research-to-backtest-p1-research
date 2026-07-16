@@ -1,0 +1,6 @@
+[submodule "projects/project1-research"]
+	path = projects/project1-research
+	url = https://github.com/yachom/research-to-backtest-p1-research.git
+[submodule "projects/project2-backtest"]
+	path = projects/project2-backtest
+	url = https://github.com/yachom/research-to-backtest-p2-backtest.git

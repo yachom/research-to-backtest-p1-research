@@ -1,0 +1,8 @@
+# 시장 데이터 수집 설정 (docs/MILESTONES.md D1, 명세 A3)
+source: pykrx
+request:
+  # 실제 소스 호출 사이 최소 대기 간격(초) — 캐시 히트는 대기 없음 (명세 A3 §3.2)
+  min_interval_seconds: 0.3
+defaults:
+  start_date: "2015-01-01" # 전체 재무제표 API 제공 범위(2015~)와 정렬 (README §6.4)
+  index_code: "1001" # KOSPI

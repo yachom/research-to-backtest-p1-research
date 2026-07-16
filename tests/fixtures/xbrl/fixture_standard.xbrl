@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 손으로 만든 소형 XBRL instance (명세 §3 fixture ①).
+     표준(ifrs-full)+확장(ext) 네임스페이스 혼재, instant·duration·forever context,
+     segment/scenario 각각의 explicitMember + typedMember, nil fact, 음수(괄호·부호)·
+     쉼표 값, KRW·shares·divide(KRW/shares)·pure unit. 파서 전 분기 검증용. -->
+<xbrli:xbrl
+    xmlns:xbrli="http://www.xbrl.org/2003/instance"
+    xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:link="http://www.xbrl.org/2003/linkbase"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+    xmlns:ifrs-full="http://xbrl.ifrs.org/taxonomy/2021-03-24/ifrs-full"
+    xmlns:ext="http://example.com/entity/ext">
+  <link:schemaRef xlink:type="simple" xlink:href="fixture_standard.xsd"/>
+
+  <!-- contexts -->
+  <xbrli:context id="c_dimless_instant">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://dart.fss.or.kr/ifrs/CIK">00164779</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2024-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+
+  <xbrli:context id="c_seg_consol">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://dart.fss.or.kr/ifrs/CIK">00164779</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:explicitMember dimension="ifrs-full:ConsolidatedAndSeparateFinancialStatementsAxis">ifrs-full:ConsolidatedMember</xbrldi:explicitMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2024-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+
+  <xbrli:context id="c_dur">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://dart.fss.or.kr/ifrs/CIK">00164779</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2024-01-01</xbrli:startDate>
+      <xbrli:endDate>2024-12-31</xbrli:endDate>
+    </xbrli:period>
+  </xbrli:context>
+
+  <xbrli:context id="c_scen">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://dart.fss.or.kr/ifrs/CIK">00164779</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:startDate>2024-01-01</xbrli:startDate>
+      <xbrli:endDate>2024-12-31</xbrli:endDate>
+    </xbrli:period>
+    <xbrli:scenario>
+      <xbrldi:explicitMember dimension="ifrs-full:OperatingSegmentsAxis">ext:SemiconductorSegmentMember</xbrldi:explicitMember>
+    </xbrli:scenario>
+  </xbrli:context>
+
+  <xbrli:context id="c_typed">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://dart.fss.or.kr/ifrs/CIK">00164779</xbrli:identifier>
+      <xbrli:segment>
+        <xbrldi:typedMember dimension="ext:BondByNameAxis">
+          <ext:BondName>GlobalBond2ndUnsecured</ext:BondName>
+        </xbrldi:typedMember>
+      </xbrli:segment>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:instant>2024-12-31</xbrli:instant>
+    </xbrli:period>
+  </xbrli:context>
+
+  <xbrli:context id="c_forever">
+    <xbrli:entity>
+      <xbrli:identifier scheme="http://dart.fss.or.kr/ifrs/CIK">00164779</xbrli:identifier>
+    </xbrli:entity>
+    <xbrli:period>
+      <xbrli:forever/>
+    </xbrli:period>
+  </xbrli:context>
+
+  <!-- units -->
+  <xbrli:unit id="KRW">
+    <xbrli:measure>iso4217:KRW</xbrli:measure>
+  </xbrli:unit>
+  <xbrli:unit id="SHARES">
+    <xbrli:measure>xbrli:shares</xbrli:measure>
+  </xbrli:unit>
+  <xbrli:unit id="KRWPS">
+    <xbrli:divide>
+      <xbrli:unitNumerator>
+        <xbrli:measure>iso4217:KRW</xbrli:measure>
+      </xbrli:unitNumerator>
+      <xbrli:unitDenominator>
+        <xbrli:measure>xbrli:shares</xbrli:measure>
+      </xbrli:unitDenominator>
+    </xbrli:divide>
+  </xbrli:unit>
+  <xbrli:unit id="PURE">
+    <xbrli:measure>xbrli:pure</xbrli:measure>
+  </xbrli:unit>
+
+  <!-- facts (document order matters for determinism tests) -->
+  <ifrs-full:Assets contextRef="c_dimless_instant" unitRef="KRW" decimals="-6">123,456,000,000</ifrs-full:Assets>
+  <ifrs-full:Assets contextRef="c_seg_consol" unitRef="KRW" decimals="-6">999,000,000,000</ifrs-full:Assets>
+  <ifrs-full:Revenue contextRef="c_dur" unitRef="KRW" decimals="-3">50,000,000,000</ifrs-full:Revenue>
+  <ifrs-full:ProfitLoss contextRef="c_dur" unitRef="KRW" decimals="0">(1,234,567)</ifrs-full:ProfitLoss>
+  <ext:CustomAdjustment contextRef="c_scen" unitRef="KRW" decimals="0">-500000</ext:CustomAdjustment>
+  <ifrs-full:NumberOfSharesOutstanding contextRef="c_dimless_instant" unitRef="SHARES" decimals="INF">728002365</ifrs-full:NumberOfSharesOutstanding>
+  <ifrs-full:BasicEarningsLossPerShare contextRef="c_dur" unitRef="KRWPS" decimals="0">5000</ifrs-full:BasicEarningsLossPerShare>
+  <ifrs-full:CurrentRatio contextRef="c_dur" unitRef="PURE" decimals="2">0.15</ifrs-full:CurrentRatio>
+  <ifrs-full:CashAndCashEquivalents contextRef="c_dimless_instant" unitRef="KRW" decimals="-6" xsi:nil="true"/>
+  <ext:FilingNote contextRef="c_typed">2024.03.15 정정 제출</ext:FilingNote>
+  <ifrs-full:NumberOfEmployees contextRef="c_forever" unitRef="PURE" decimals="0">42000</ifrs-full:NumberOfEmployees>
+</xbrli:xbrl>

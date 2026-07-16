@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <list>
+        <corp_code>00164779</corp_code>
+        <corp_name>SK하이닉스</corp_name>
+        <corp_eng_name>SK hynix Inc.</corp_eng_name>
+        <stock_code>000660</stock_code>
+        <modify_date>20250102</modify_date>
+    </list>
+    <list>
+        <corp_code>00126380</corp_code>
+        <corp_name>삼성전자</corp_name>
+        <corp_eng_name>SAMSUNG ELECTRONICS CO,.LTD</corp_eng_name>
+        <stock_code>005930</stock_code>
+        <modify_date>20250103</modify_date>
+    </list>
+    <list>
+        <corp_code>00990001</corp_code>
+        <corp_name>삼성전자</corp_name>
+        <corp_eng_name></corp_eng_name>
+        <stock_code> </stock_code>
+        <modify_date>20240517</modify_date>
+    </list>
+    <list>
+        <corp_code>00990002</corp_code>
+        <corp_name>쌍둥이상사</corp_name>
+        <corp_eng_name>Twin Trading Co.</corp_eng_name>
+        <stock_code> </stock_code>
+        <modify_date>20230811</modify_date>
+    </list>
+    <list>
+        <corp_code>00990003</corp_code>
+        <corp_name>쌍둥이상사</corp_name>
+        <corp_eng_name></corp_eng_name>
+        <stock_code> </stock_code>
+        <modify_date>20220301</modify_date>
+    </list>
+    <list>
+        <corp_code>00990004</corp_code>
+        <corp_name>하이닉스세미콘</corp_name>
+        <corp_eng_name>Hynix Semicon Co.</corp_eng_name>
+        <stock_code> </stock_code>
+        <modify_date>20210920</modify_date>
+    </list>
+</result>

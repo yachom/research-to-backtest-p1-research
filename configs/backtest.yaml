@@ -1,0 +1,14 @@
+# 백테스트 기본 설정 (README §23~24)
+execution:
+  signal_time: close # t일 종가로 신호 계산
+  trade_time: next_open # t+1 거래일 시가 체결
+
+costs:
+  commission_rate: 0.00015 # 위탁수수료(편도) 가정
+  sell_tax_rate: 0.0018 # 증권거래세+농특세(매도) — 기간별 세율 변경 반영은 후순위
+  slippage_rate: 0.001
+
+defaults:
+  benchmark: KOSPI
+  strategy_style: long_cash
+  initial_cash: 100000000

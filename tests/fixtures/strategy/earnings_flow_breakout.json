@@ -1,0 +1,48 @@
+{
+  "strategy_name": "EarningsFlowBreakout",
+  "version": "1.0",
+  "universe": {
+    "type": "single_asset",
+    "tickers": ["000660"]
+  },
+  "entry": {
+    "all": [
+      {
+        "left": "operating_income_yoy",
+        "operator": ">",
+        "right": 0.20
+      },
+      {
+        "left": "foreign_net_buy_20d",
+        "operator": ">",
+        "right": 0
+      },
+      {
+        "left": "close",
+        "operator": "cross_above",
+        "right": "rolling_high_60_lag1"
+      }
+    ]
+  },
+  "exit": {
+    "any": [
+      {
+        "left": "close",
+        "operator": "cross_below",
+        "right": "sma_20"
+      },
+      {
+        "type": "max_holding_days",
+        "value": 60
+      },
+      {
+        "type": "stop_loss",
+        "value": -0.10
+      }
+    ]
+  },
+  "execution": {
+    "signal_time": "close",
+    "trade_time": "next_open"
+  }
+}

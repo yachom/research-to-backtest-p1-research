@@ -1,0 +1,148 @@
+# 표준계정 Registry (README §12.2, 명세 A4 §2)
+#
+# A4에서 SK하이닉스 실데이터(00164779, 2021~2025)로 검증·개정했다.
+# statement_type(단일) → statement_types(복수)로 스키마를 개정한다 —
+# 손익 계정은 IS·CIS 모두 허용해야 한다(DATA_NOTES A2-①: SK하이닉스는
+# 손익이 전부 CIS에 담긴다). BS/CF는 각각 [BS]/[CF].
+#
+# 매칭은 (sj_div 필터 → concept → label) 순서다(명세 §3). accepted_concepts는
+# "prefix:Name"(콜론) 형태이며, API의 account_id "prefix_Name"(언더스코어)는
+# 로더가 `_`→`:`로 정규화한 뒤 비교한다. trade_receivables는 SK하이닉스가
+# 표준계정 ifrs-full:TradeAndOtherCurrentReceivables가 아닌
+# ifrs-full_CurrentTradeReceivables로 보고하므로 실데이터에서는 label('매출채권')
+# 경로로 매칭된다(concept 미일치 → label 병행 매칭의 실증 사례, 명세 §3·§9).
+
+revenue:
+  korean_name: 매출액
+  english_name: Revenue
+  statement_types: [IS, CIS]
+  balance_type: credit
+  period_type: duration
+  accepted_concepts:
+    - ifrs-full:Revenue
+  accepted_labels:
+    - 매출액
+    - 수익(매출액)
+    - 영업수익
+    - 매출
+
+operating_income:
+  korean_name: 영업이익
+  english_name: OperatingIncome
+  statement_types: [IS, CIS]
+  balance_type: credit
+  period_type: duration
+  accepted_concepts:
+    - dart:OperatingIncomeLoss
+  accepted_labels:
+    - 영업이익
+    - 영업이익(손실)
+    - 영업손익
+
+net_income:
+  korean_name: 당기순이익
+  english_name: NetIncome
+  statement_types: [IS, CIS]
+  balance_type: credit
+  period_type: duration
+  accepted_concepts:
+    - ifrs-full:ProfitLoss
+  accepted_labels:
+    - 당기순이익
+    - 당기순이익(손실)
+    - 분기순이익
+    - 분기순이익(손실)
+    - 반기순이익
+    - 반기순이익(손실)
+
+total_assets:
+  korean_name: 자산총계
+  english_name: TotalAssets
+  statement_types: [BS]
+  balance_type: debit
+  period_type: instant
+  accepted_concepts:
+    - ifrs-full:Assets
+  accepted_labels:
+    - 자산총계
+
+total_liabilities:
+  korean_name: 부채총계
+  english_name: TotalLiabilities
+  statement_types: [BS]
+  balance_type: credit
+  period_type: instant
+  accepted_concepts:
+    - ifrs-full:Liabilities
+  accepted_labels:
+    - 부채총계
+
+total_equity:
+  korean_name: 자본총계
+  english_name: TotalEquity
+  statement_types: [BS]
+  balance_type: credit
+  period_type: instant
+  accepted_concepts:
+    - ifrs-full:Equity
+  accepted_labels:
+    - 자본총계
+
+cash_and_cash_equivalents:
+  korean_name: 현금및현금성자산
+  english_name: CashAndCashEquivalents
+  statement_types: [BS]
+  balance_type: debit
+  period_type: instant
+  accepted_concepts:
+    - ifrs-full:CashAndCashEquivalents
+  accepted_labels:
+    - 현금및현금성자산
+
+operating_cash_flow:
+  korean_name: 영업활동현금흐름
+  english_name: OperatingCashFlow
+  statement_types: [CF]
+  period_type: duration
+  accepted_concepts:
+    - ifrs-full:CashFlowsFromUsedInOperatingActivities
+  accepted_labels:
+    - 영업활동현금흐름
+    - 영업활동으로 인한 현금흐름
+    - 영업활동 현금흐름
+
+purchase_of_ppe:
+  korean_name: 유형자산의 취득
+  english_name: PurchaseOfPropertyPlantAndEquipment
+  statement_types: [CF]
+  period_type: duration
+  accepted_concepts:
+    - ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities
+  accepted_labels:
+    - 유형자산의 취득
+    - 유형자산의취득
+    - 유형자산 취득
+
+inventories:
+  korean_name: 재고자산
+  english_name: Inventories
+  statement_types: [BS]
+  balance_type: debit
+  period_type: instant
+  accepted_concepts:
+    - ifrs-full:Inventories
+  accepted_labels:
+    - 재고자산
+
+trade_receivables:
+  korean_name: 매출채권
+  english_name: TradeReceivables
+  statement_types: [BS]
+  balance_type: debit
+  period_type: instant
+  accepted_concepts:
+    - ifrs-full:TradeAndOtherCurrentReceivables
+  accepted_labels:
+    - 매출채권
+    - 매출채권및기타채권
+    - 매출채권 및 기타유동채권

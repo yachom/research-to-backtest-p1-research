@@ -1,0 +1,16 @@
+{
+  "evidence": [
+    {
+      "evidence_id": "EVID-001",
+      "source": "DART 2025 사업보고서 — 연결 손익계산서"
+    },
+    {
+      "evidence_id": "EVID-002",
+      "source": "XBRL 원문 — 부문별 매출 주석"
+    },
+    {
+      "evidence_id": "EVID-003",
+      "source": "일별 수정주가·외국인 순매수 (pykrx)"
+    }
+  ]
+}

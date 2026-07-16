@@ -1,0 +1,22 @@
+{
+  "view_id": "VIEW-20260714-001",
+  "author": "홍길동",
+  "research_question": "SK하이닉스의 2025년 실적 회복은 이미 주가에 반영되었는가?",
+  "core_thesis": "실적 회복 자체보다 시장 기대치 대비 서프라이즈 여부가 향후 주가 방향을 결정한다.",
+  "selected_evidence_ids": ["EVID-001", "EVID-002"],
+  "rejected_evidence_ids": ["EVID-003"],
+  "evidence_selection_reason": "공시 기반 1차 자료(재무제표·XBRL 주석)를 우선 채택했다.",
+  "rejected_evidence_reasons": {
+    "EVID-003": "주가·수급 데이터는 검증 대상 결과 변수와 겹쳐 근거로는 사용하지 않는다."
+  },
+  "interpretation": "HBM 매출 비중 확대가 실적 개선의 핵심 동인으로 해석된다.",
+  "expected_mechanism": "HBM 출하 비중 증가 → 블렌디드 ASP 상승 → 영업이익률 개선",
+  "counterarguments": [
+    "시장이 이미 HBM 성장을 주가에 선반영했을 가능성이 있다."
+  ],
+  "uncertainties": [
+    "차기 CAPEX 계획과 경쟁사 증설 속도가 아직 불확실하다."
+  ],
+  "created_at": "2026-07-14T10:00:00+09:00",
+  "updated_at": "2026-07-14T10:00:00+09:00"
+}

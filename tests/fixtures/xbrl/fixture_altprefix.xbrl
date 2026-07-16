@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 손으로 만든 소형 XBRL instance (명세 §3 fixture ②).
+     fixture_standard와 **같은 ifrs-full URI**를 다른 prefix('ifrs')로 선언하고,
+     xbrli도 다른 prefix('x')로 선언한다. concept_namespace(uri)·concept_local_name은
+     prefix와 무관하게 동일해야 하고(namespace 동적 처리), concept_qname만 문서 prefix를
+     따른다(ifrs:Assets). -->
+<x:xbrl
+    xmlns:x="http://www.xbrl.org/2003/instance"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+    xmlns:ifrs="http://xbrl.ifrs.org/taxonomy/2021-03-24/ifrs-full">
+  <x:context id="d1">
+    <x:entity>
+      <x:identifier scheme="http://dart.fss.or.kr/ifrs/CIK">00164779</x:identifier>
+    </x:entity>
+    <x:period>
+      <x:instant>2024-12-31</x:instant>
+    </x:period>
+  </x:context>
+  <x:unit id="KRW">
+    <x:measure>iso4217:KRW</x:measure>
+  </x:unit>
+  <ifrs:Assets contextRef="d1" unitRef="KRW" decimals="-6">100</ifrs:Assets>
+</x:xbrl>

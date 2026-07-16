@@ -1,0 +1,25 @@
+{
+  "hypothesis_id": "HYP-20260714-001",
+  "view_id": "VIEW-20260714-001",
+  "author": "홍길동",
+  "thesis": "HBM 매출 비중 확대가 2026년 하반기 영업이익률을 시장 컨센서스 이상으로 끌어올릴 것이다.",
+  "economic_rationale": "HBM은 legacy DRAM 대비 평균판매단가와 마진이 높아, 매출 믹스 개선이 곧바로 이익률 개선으로 이어진다.",
+  "expected_mechanism": "HBM 출하 비중 증가 → 블렌디드 ASP 상승 → 영업이익률 개선 → 실적 서프라이즈",
+  "selected_variables": ["operating_income_yoy", "foreign_net_buy_20d"],
+  "expected_direction": "up",
+  "investment_horizon_days": 90,
+  "evidence_ids": ["EVID-001", "EVID-002"],
+  "falsification_conditions": [
+    "2개 분기 연속 영업이익률이 컨센서스를 하회하면 가설을 기각한다."
+  ],
+  "limitations": [
+    "메모리 반도체 가격은 매크로 변수에 민감해 예측 오차가 크다."
+  ],
+  "status": "DRAFT",
+  "created_at": "2026-07-14T11:00:00+09:00",
+  "updated_at": "2026-07-14T11:00:00+09:00",
+  "unsupported_variables": [],
+  "content_origin": "HUMAN_HYPOTHESIS",
+  "approved_by": null,
+  "approved_at": null
+}
